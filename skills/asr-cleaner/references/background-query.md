@@ -31,11 +31,11 @@
 
 在执行前优先检查当前系统环境或工作区中的 Agent 记忆与规范文件：
 - `~/AGENTS.md` 或 `./AGENTS.md`（系统级全局 Agent 协议与个人概况）
-- `DARREN THE NOTES/- Agent Relate/AGENTS.md`（Vault 级记忆上下文）
+- `<Vault>/AGENTS.md`（Vault 级记忆上下文）
 
 **提取要点**：
-- **用户基础画像**：姓名（如 Darren）、核心角色（HRBP、AI 转型等）、工作所在地
-- **组织与业务**：当前所属公司（如 库犸科技 / Mammotion）、核心产品线（如 割草机器人、充电基站等）
+- **用户基础画像**：姓名或称呼、核心角色（如业务负责人、项目成员等）、工作所在地
+- **组织与业务**：当前所属组织（如某科技公司 / Acme Corp）、核心产品线（如智能硬件、云端平台等）
 - **高频专有名词**：内部常用缩写（如 HRBP、COE、SSC、IPD、OD 等）
 
 ---
@@ -50,8 +50,8 @@
 
 | 检索维度 | 查询关键词推荐 | 用途 |
 |---|---|---|
-| **用户画像与身份** | `user profile identity background Darren` | 确认用户人设、表达习惯、核心业务域 |
-| **公司与业务上下文** | `company work context business product lines Mammotion` | 公司全称、产品代号、业务专业术语 |
+| **用户画像与身份** | `user profile identity background` | 确认用户人设、表达习惯、核心业务域 |
+| **公司与业务上下文** | `company work context business product lines` | 公司全称、产品代号、业务专业术语 |
 | **团队与高频人际** | `colleagues team members contacts key stakeholders` | 同事/合作伙伴姓名拼写，辅助说话人与人名识别 |
 
 #### 2. 按需领域检索（根据转写内容命中触发）
@@ -80,18 +80,16 @@ Arguments:
 
 ```json
 {
-  "酷马": "库犸",
-  "库马科技": "库犸科技",
-  "mammoth": "Mammotion",
-  "motion": "Mammotion",
-  "割草机": "割草机器人",
+  "艾克米": "Acme",
+  "艾克米科技": "Acme科技",
+  "acmi": "Acme",
   "HRB P": "HRBP",
   "三支柱": "HR三支柱"
 }
 ```
 
 ### 实体校验与修复阶梯
-1. **高置信度（完全对齐）**：发音与上下文高度吻合（如「酷马」在讨论割草机器人公司时），直接替换为「库犸」。
+1. **高置信度（完全对齐）**：发音与上下文高度吻合（如「艾克米」在讨论对应公司业务时），直接替换为「Acme」。
 2. **中置信度（近似推测）**：替换并在报告中记录：`[推测修复: 原文 → 修复]`。
 3. **低置信度（模糊可疑）**：保留原文并显式标注：`[名词待确认: 原文]`。
 
